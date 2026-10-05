@@ -30,6 +30,25 @@ function AuthPage() {
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
+
+  async function onForgot() {
+    setError("");
+    setNotice("");
+    if (!email.trim()) {
+      setError("Type your email above first, then tap Forgot password.");
+      return;
+    }
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    if (resetError) {
+      setError("Could not send the reset email. Please try again.");
+      return;
+    }
+    setNotice("Check your inbox for a link to set a new password.");
+  }
+
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -107,6 +126,18 @@ function AuthPage() {
         >
           {busy ? "Signing in…" : "Sign in"}
         </button>
+        <button
+          type="button"
+          onClick={onForgot}
+          className="w-full text-center text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+        >
+          Forgot password?
+        </button>
+        {notice ? (
+          <p className="text-sm text-muted-foreground" role="status">
+            {notice}
+          </p>
+        ) : null}
       </form>
     </div>
   );
