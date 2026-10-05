@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { CATEGORIES } from "@/lib/products";
 import { site } from "@/lib/site";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoUrl from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -10,7 +10,7 @@ export function Footer() {
         <div className="md:col-span-5">
           <span className="inline-flex items-center gap-2.5 rounded-lg bg-background p-2">
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt={`${site.name} logo`}
               className="h-10 w-auto object-contain"
             />

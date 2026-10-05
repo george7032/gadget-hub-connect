@@ -14,13 +14,81 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_emails: {
+        Row: {
+          created_at: string
+          email: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          brand: string
+          category: string
+          created_at: string
+          description: string
+          id: string
+          image_url: string | null
+          in_stock: boolean
+          name: string
+          old_price: number | null
+          price: number
+          slug: string
+          sort_order: number
+          specs: Json
+          tags: string[]
+          updated_at: string
+        }
+        Insert: {
+          brand?: string
+          category: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string | null
+          in_stock?: boolean
+          name: string
+          old_price?: number | null
+          price?: number
+          slug: string
+          sort_order?: number
+          specs?: Json
+          tags?: string[]
+          updated_at?: string
+        }
+        Update: {
+          brand?: string
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string | null
+          in_stock?: boolean
+          name?: string
+          old_price?: number | null
+          price?: number
+          slug?: string
+          sort_order?: number
+          specs?: Json
+          tags?: string[]
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never

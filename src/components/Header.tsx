@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { CATEGORIES } from "@/lib/products";
 import { site, whatsappLink } from "@/lib/site";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoUrl from "@/assets/logo.png";
 
 export function Header() {
   return (
@@ -9,7 +9,7 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-5 py-3">
         <Link to="/" className="flex items-center gap-2.5">
           <img
-            src={logoAsset.url}
+            src={logoUrl}
             alt={`${site.name} logo`}
             className="h-10 w-auto object-contain"
           />
