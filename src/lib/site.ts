@@ -38,5 +38,6 @@ export function productWhatsappLink(productName: string) {
 }
 
 export function formatKsh(value: number) {
+  if (!value) return "Ask for price";
   return `KSh ${value.toLocaleString("en-KE")}`;
 }
